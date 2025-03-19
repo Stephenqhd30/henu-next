@@ -1,0 +1,77 @@
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.bannerCard {
+  display: flex;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: 60vh;
+}
+
+// 媒体查询
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.25rem;
+  }
+  .bannerCard {
+    height: 35vh;
+    font-size: 0.75em;
+  }
+  .bannerCardDotLeft {
+    left: 2rem;
+  }
+  .bannerCardDotRight {
+    right: 2rem;
+  }
+}
+
+// TODO : 全局的动画引入
+
+.underlineAnimation {
+  position: relative;
+  display: inline-block;
+}
+
+.underlineAnimation::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.underlineAnimation:hover::after {
+  width: 100%;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(var(--primary), 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(var(--primary), 1);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(var(--primary), 0.5);
+  }
+}
+
+.glowAnimation:hover {
+  animation: glow 1s forwards;
+  color: rgb(var(--primary));
+}

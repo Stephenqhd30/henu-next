@@ -1,0 +1,8 @@
+.searchInput {
+  &:hover,
+  &:focus-within {
+    border-color: transparent !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+}

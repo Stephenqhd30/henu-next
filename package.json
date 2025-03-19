@@ -1,0 +1,49 @@
+{
+  "name": "stephen-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "openapi2ts": "openapi2ts"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.6.1",
+    "@ant-design/md-editor": "^1.17.25",
+    "@ant-design/nextjs-registry": "^1.0.2",
+    "@ant-design/pro-components": "^2.8.6",
+    "@ant-design/pro-form": "^2.31.6",
+    "@ant-design/pro-layout": "^7.22.3",
+    "@ant-design/x": "^1.0.5",
+    "@react-spring/web": "^9.7.5",
+    "@reduxjs/toolkit": "^2.6.1",
+    "@tailwindcss/postcss": "^4.0.13",
+    "antd": "^5.24.3",
+    "antd-style": "^3.7.1",
+    "axios": "^1.8.2",
+    "clsx": "^2.1.1",
+    "gsap": "^3.12.7",
+    "next": "15.2.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0",
+    "react-typed": "^2.0.12",
+    "scss": "^0.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.24",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@umijs/openapi": "^1.13.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.6",
+    "eslint-config-prettier": "^9.1.0",
+    "postcss": "^8.5.3",
+    "prettier": "3.4.2",
+    "tailwindcss": "^4.0.13",
+    "typescript": "^5.8.2"
+  }
+}
