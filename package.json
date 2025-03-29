@@ -10,6 +10,7 @@
     "openapi2ts": "openapi2ts"
   },
   "dependencies": {
+    "@ant-design/cssinjs": "^1.23.0",
     "@ant-design/icons": "^5.6.1",
     "@ant-design/md-editor": "^1.17.25",
     "@ant-design/nextjs-registry": "^1.0.2",
