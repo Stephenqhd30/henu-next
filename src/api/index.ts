@@ -2,29 +2,45 @@
 /* eslint-disable */
 // API 更新时间：
 // API 唯一标识：
-import * as wxMpController from "./wxMpController";
-import * as authController from "./authController";
+import * as adminController from "./adminController";
+import * as cadreTypeController from "./cadreTypeController";
 import * as captchaController from "./captchaController";
-import * as conversionController from "./conversionController";
-import * as searchController from "./searchController";
-import * as fileController from "./fileController";
-import * as messageController from "./messageController";
-import * as postController from "./postController";
-import * as postFavourController from "./postFavourController";
-import * as postThumbController from "./postThumbController";
-import * as tagController from "./tagController";
+import * as deadlineController from "./deadlineController";
+import * as educationController from "./educationController";
+import * as excelController from "./excelController";
+import * as familyController from "./familyController";
+import * as fileLogController from "./fileLogController";
+import * as fileTypeController from "./fileTypeController";
+import * as jobController from "./jobController";
+import * as messageNoticeController from "./messageNoticeController";
+import * as messagePushController from "./messagePushController";
+import * as operationLogController from "./operationLogController";
+import * as registrationFormController from "./registrationFormController";
+import * as reviewLogController from "./reviewLogController";
+import * as schoolController from "./schoolController";
+import * as schoolSchoolTypeController from "./schoolSchoolTypeController";
+import * as schoolTypeController from "./schoolTypeController";
+import * as systemMessagesController from "./systemMessagesController";
 import * as userController from "./userController";
 export default {
-  wxMpController,
-  authController,
+  adminController,
+  cadreTypeController,
   captchaController,
-  conversionController,
-  searchController,
-  fileController,
-  messageController,
-  postController,
-  postFavourController,
-  postThumbController,
-  tagController,
+  deadlineController,
+  educationController,
+  excelController,
+  familyController,
+  fileLogController,
+  fileTypeController,
+  jobController,
+  messageNoticeController,
+  messagePushController,
+  operationLogController,
+  registrationFormController,
+  reviewLogController,
+  schoolController,
+  schoolSchoolTypeController,
+  schoolTypeController,
+  systemMessagesController,
   userController,
 };

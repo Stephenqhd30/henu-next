@@ -115,25 +115,40 @@ export async function userLoginUsingPost(
   });
 }
 
-/** userLoginByWxOpen GET /api/user/login/wx_open */
-export async function userLoginByWxOpenUsingGet(
-  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
-  params: API.userLoginByWxOpenUsingGETParams,
-  options?: { [key: string]: any }
-) {
-  return request<API.BaseResponseLoginUserVO_>("/api/user/login/wx_open", {
-    method: "GET",
-    params: {
-      ...params,
-    },
-    ...(options || {}),
-  });
-}
-
 /** userLogout POST /api/user/logout */
 export async function userLogoutUsingPost(options?: { [key: string]: any }) {
   return request<API.BaseResponseBoolean_>("/api/user/logout", {
     method: "POST",
+    ...(options || {}),
+  });
+}
+
+/** sentRecoveryCode POST /api/user/recovery/code */
+export async function sentRecoveryCodeUsingPost(
+  body: API.UserUpdatePasswordRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseBoolean_>("/api/user/recovery/code", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** verifyRecoveryCode POST /api/user/recovery/verify */
+export async function verifyRecoveryCodeUsingPost(
+  body: API.UserUpdatePasswordRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseBoolean_>("/api/user/recovery/verify", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
     ...(options || {}),
   });
 }
@@ -174,6 +189,21 @@ export async function updateMyUserUsingPost(
   options?: { [key: string]: any }
 ) {
   return request<API.BaseResponseBoolean_>("/api/user/update/my", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** updatePassword POST /api/user/update/password */
+export async function updatePasswordUsingPost(
+  body: API.UserUpdatePasswordRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseBoolean_>("/api/user/update/password", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

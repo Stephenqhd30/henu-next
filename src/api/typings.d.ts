@@ -1,4 +1,63 @@
 declare namespace API {
+  type Admin = {
+    adminName?: string;
+    adminNumber?: string;
+    adminPassword?: string;
+    adminType?: string;
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    updateTime?: string;
+  };
+
+  type AdminAddRequest = {
+    adminName?: string;
+    adminNumber?: string;
+    adminPassword?: string;
+    adminType?: string;
+  };
+
+  type AdminEditRequest = {
+    adminName?: string;
+    adminNumber?: string;
+    id?: number;
+  };
+
+  type AdminLoginRequest = {
+    adminNumber?: string;
+    adminPassword?: string;
+  };
+
+  type AdminQueryRequest = {
+    adminName?: string;
+    adminNumber?: string;
+    adminType?: string;
+    current?: number;
+    id?: number;
+    notId?: number;
+    pageSize?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type AdminUpdateRequest = {
+    adminName?: string;
+    adminNumber?: string;
+    adminPassword?: string;
+    adminType?: string;
+    id?: number;
+  };
+
+  type AdminVO = {
+    adminName?: string;
+    adminNumber?: string;
+    adminType?: string;
+    createTime?: string;
+    id?: number;
+    updateTime?: string;
+  };
+
   type AffineTransform = {
     determinant?: number;
     identity?: boolean;
@@ -13,54 +72,9 @@ declare namespace API {
 
   type Attribute = true;
 
-  type Auth = {
-    accessToken?: string;
-    createTime?: string;
-    id?: number;
-    isDelete?: number;
-    oauthId?: string;
-    oauthProvider?: string;
-    refreshToken?: string;
-    updateTime?: string;
-    userId?: number;
-  };
-
-  type AuthAddRequest = {
-    accessToken?: string;
-    oauthId?: string;
-    oauthProvider?: string;
-    refreshToken?: string;
-  };
-
-  type AuthQueryRequest = {
-    accessToken?: string;
-    current?: number;
-    id?: number;
-    notId?: number;
-    oauthId?: string;
-    oauthProvider?: string;
-    pageSize?: number;
-    refreshToken?: string;
-    sortField?: string;
-    sortOrder?: string;
-    userId?: number;
-  };
-
-  type AuthVO = {
-    accessToken?: string;
-    createTime?: string;
-    id?: number;
-    oauthId?: string;
-    oauthProvider?: string;
-    refreshToken?: string;
-    updateTime?: string;
-    userId?: number;
-    userVO?: UserVO;
-  };
-
-  type BaseResponseAuthVO_ = {
+  type BaseResponseAdminVO_ = {
     code?: number;
-    data?: AuthVO;
+    data?: AdminVO;
     message?: string;
   };
 
@@ -70,27 +84,57 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponseCadreTypeVO_ = {
+    code?: number;
+    data?: CadreTypeVO;
+    message?: string;
+  };
+
   type BaseResponseCaptcha_ = {
     code?: number;
     data?: Captcha;
     message?: string;
   };
 
-  type BaseResponseConversionVO_ = {
+  type BaseResponseDeadlineVO_ = {
     code?: number;
-    data?: ConversionVO;
+    data?: DeadlineVO;
     message?: string;
   };
 
-  type BaseResponseInt_ = {
+  type BaseResponseEducationVO_ = {
     code?: number;
-    data?: number;
+    data?: EducationVO;
     message?: string;
   };
 
-  type BaseResponseListTagDTO_ = {
+  type BaseResponseFamilyVO_ = {
     code?: number;
-    data?: TagDTO[];
+    data?: FamilyVO;
+    message?: string;
+  };
+
+  type BaseResponseFileLogVO_ = {
+    code?: number;
+    data?: FileLogVO;
+    message?: string;
+  };
+
+  type BaseResponseFileTypeVO_ = {
+    code?: number;
+    data?: FileTypeVO;
+    message?: string;
+  };
+
+  type BaseResponseJobVO_ = {
+    code?: number;
+    data?: JobVO;
+    message?: string;
+  };
+
+  type BaseResponseLoginAdminVO_ = {
+    code?: number;
+    data?: LoginAdminVO;
     message?: string;
   };
 
@@ -106,69 +150,225 @@ declare namespace API {
     message?: string;
   };
 
-  type BaseResponseMessageVO_ = {
+  type BaseResponseMessageNoticeVO_ = {
     code?: number;
-    data?: MessageVO;
+    data?: MessageNoticeVO;
     message?: string;
   };
 
-  type BaseResponsePageAuth_ = {
+  type BaseResponseMessagePushVO_ = {
     code?: number;
-    data?: PageAuth_;
+    data?: MessagePushVO;
     message?: string;
   };
 
-  type BaseResponsePageAuthVO_ = {
+  type BaseResponseOperationLogVO_ = {
     code?: number;
-    data?: PageAuthVO_;
+    data?: OperationLogVO;
     message?: string;
   };
 
-  type BaseResponsePageConversion_ = {
+  type BaseResponsePageAdmin_ = {
     code?: number;
-    data?: PageConversion_;
+    data?: PageAdmin_;
     message?: string;
   };
 
-  type BaseResponsePageConversionVO_ = {
+  type BaseResponsePageAdminVO_ = {
     code?: number;
-    data?: PageConversionVO_;
+    data?: PageAdminVO_;
     message?: string;
   };
 
-  type BaseResponsePageMessage_ = {
+  type BaseResponsePageCadreType_ = {
     code?: number;
-    data?: PageMessage_;
+    data?: PageCadreType_;
     message?: string;
   };
 
-  type BaseResponsePageMessageVO_ = {
+  type BaseResponsePageCadreTypeVO_ = {
     code?: number;
-    data?: PageMessageVO_;
+    data?: PageCadreTypeVO_;
     message?: string;
   };
 
-  type BaseResponsePagePost_ = {
+  type BaseResponsePageDeadline_ = {
     code?: number;
-    data?: PagePost_;
+    data?: PageDeadline_;
     message?: string;
   };
 
-  type BaseResponsePagePostVO_ = {
+  type BaseResponsePageDeadlineVO_ = {
     code?: number;
-    data?: PagePostVO_;
+    data?: PageDeadlineVO_;
     message?: string;
   };
 
-  type BaseResponsePageTag_ = {
+  type BaseResponsePageEducation_ = {
     code?: number;
-    data?: PageTag_;
+    data?: PageEducation_;
     message?: string;
   };
 
-  type BaseResponsePageTagVO_ = {
+  type BaseResponsePageEducationVO_ = {
     code?: number;
-    data?: PageTagVO_;
+    data?: PageEducationVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageFamily_ = {
+    code?: number;
+    data?: PageFamily_;
+    message?: string;
+  };
+
+  type BaseResponsePageFamilyVO_ = {
+    code?: number;
+    data?: PageFamilyVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageFileLog_ = {
+    code?: number;
+    data?: PageFileLog_;
+    message?: string;
+  };
+
+  type BaseResponsePageFileLogVO_ = {
+    code?: number;
+    data?: PageFileLogVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageFileType_ = {
+    code?: number;
+    data?: PageFileType_;
+    message?: string;
+  };
+
+  type BaseResponsePageFileTypeVO_ = {
+    code?: number;
+    data?: PageFileTypeVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageJob_ = {
+    code?: number;
+    data?: PageJob_;
+    message?: string;
+  };
+
+  type BaseResponsePageJobVO_ = {
+    code?: number;
+    data?: PageJobVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageMessageNotice_ = {
+    code?: number;
+    data?: PageMessageNotice_;
+    message?: string;
+  };
+
+  type BaseResponsePageMessageNoticeVO_ = {
+    code?: number;
+    data?: PageMessageNoticeVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageMessagePush_ = {
+    code?: number;
+    data?: PageMessagePush_;
+    message?: string;
+  };
+
+  type BaseResponsePageMessagePushVO_ = {
+    code?: number;
+    data?: PageMessagePushVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageOperationLog_ = {
+    code?: number;
+    data?: PageOperationLog_;
+    message?: string;
+  };
+
+  type BaseResponsePageOperationLogVO_ = {
+    code?: number;
+    data?: PageOperationLogVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageRegistrationForm_ = {
+    code?: number;
+    data?: PageRegistrationForm_;
+    message?: string;
+  };
+
+  type BaseResponsePageRegistrationFormVO_ = {
+    code?: number;
+    data?: PageRegistrationFormVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageReviewLog_ = {
+    code?: number;
+    data?: PageReviewLog_;
+    message?: string;
+  };
+
+  type BaseResponsePageReviewLogVO_ = {
+    code?: number;
+    data?: PageReviewLogVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageSchool_ = {
+    code?: number;
+    data?: PageSchool_;
+    message?: string;
+  };
+
+  type BaseResponsePageSchoolSchoolType_ = {
+    code?: number;
+    data?: PageSchoolSchoolType_;
+    message?: string;
+  };
+
+  type BaseResponsePageSchoolSchoolTypeVO_ = {
+    code?: number;
+    data?: PageSchoolSchoolTypeVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageSchoolType_ = {
+    code?: number;
+    data?: PageSchoolType_;
+    message?: string;
+  };
+
+  type BaseResponsePageSchoolTypeVO_ = {
+    code?: number;
+    data?: PageSchoolTypeVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageSchoolVO_ = {
+    code?: number;
+    data?: PageSchoolVO_;
+    message?: string;
+  };
+
+  type BaseResponsePageSystemMessages_ = {
+    code?: number;
+    data?: PageSystemMessages_;
+    message?: string;
+  };
+
+  type BaseResponsePageSystemMessagesVO_ = {
+    code?: number;
+    data?: PageSystemMessagesVO_;
     message?: string;
   };
 
@@ -184,15 +384,33 @@ declare namespace API {
     message?: string;
   };
 
-  type BaseResponsePostVO_ = {
+  type BaseResponseRegistrationFormVO_ = {
     code?: number;
-    data?: PostVO;
+    data?: RegistrationFormVO;
     message?: string;
   };
 
-  type BaseResponseSearchVOObject_ = {
+  type BaseResponseReviewLogVO_ = {
     code?: number;
-    data?: SearchVOObject_;
+    data?: ReviewLogVO;
+    message?: string;
+  };
+
+  type BaseResponseSchoolSchoolTypeVO_ = {
+    code?: number;
+    data?: SchoolSchoolTypeVO;
+    message?: string;
+  };
+
+  type BaseResponseSchoolTypeVO_ = {
+    code?: number;
+    data?: SchoolTypeVO;
+    message?: string;
+  };
+
+  type BaseResponseSchoolVO_ = {
+    code?: number;
+    data?: SchoolVO;
     message?: string;
   };
 
@@ -202,9 +420,9 @@ declare namespace API {
     message?: string;
   };
 
-  type BaseResponseTagVO_ = {
+  type BaseResponseSystemMessagesVO_ = {
     code?: number;
-    data?: TagVO;
+    data?: SystemMessagesVO;
     message?: string;
   };
 
@@ -249,6 +467,44 @@ declare namespace API {
     writableTileIndices?: Point[];
   };
 
+  type CadreType = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    type?: string;
+    updateTime?: string;
+  };
+
+  type CadreTypeAddRequest = {
+    type?: string;
+  };
+
+  type CadreTypeQueryRequest = {
+    adminId?: number;
+    current?: number;
+    id?: number;
+    notId?: number;
+    pageSize?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+    type?: string;
+  };
+
+  type CadreTypeUpdateRequest = {
+    id?: number;
+    type?: string;
+  };
+
+  type CadreTypeVO = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    type?: string;
+    updateTime?: string;
+  };
+
   type Captcha = {
     code?: string;
     image?: string;
@@ -259,17 +515,6 @@ declare namespace API {
   type checkCaptchaCodeUsingPOSTParams = {
     /** code */
     code: string;
-  };
-
-  type checkUsingGETParams = {
-    /** echostr */
-    echostr?: string;
-    /** nonce */
-    nonce?: string;
-    /** signature */
-    signature?: string;
-    /** timestamp */
-    timestamp?: string;
   };
 
   type Color = {
@@ -299,56 +544,55 @@ declare namespace API {
     type?: number;
   };
 
-  type Conversion = {
-    createTime?: string;
-    id?: number;
-    isDelete?: number;
-    title?: string;
-    updateTime?: string;
-    userId?: number;
-  };
-
-  type ConversionAddRequest = {
-    title?: string;
-  };
-
-  type ConversionEditRequest = {
-    id?: number;
-    title?: string;
-  };
-
-  type ConversionQueryRequest = {
-    current?: number;
-    id?: number;
-    notId?: number;
-    pageSize?: number;
-    searchText?: string;
-    sortField?: string;
-    sortOrder?: string;
-    title?: string;
-    userId?: number;
-  };
-
-  type ConversionUpdateRequest = {
-    id?: number;
-    title?: string;
-  };
-
-  type ConversionVO = {
-    createTime?: string;
-    id?: number;
-    title?: string;
-    updateTime?: string;
-    userId?: number;
-    userVO?: UserVO;
-  };
-
   type DataBuffer = {
     dataType?: number;
     numBanks?: number;
     offset?: number;
     offsets?: number[];
     size?: number;
+  };
+
+  type Deadline = {
+    adminId?: number;
+    createTime?: string;
+    deadlineTime?: string;
+    id?: number;
+    isDelete?: number;
+    jobId?: number;
+    updateTime?: string;
+  };
+
+  type DeadlineAddRequest = {
+    deadlineTime?: string;
+    jobId?: number;
+  };
+
+  type DeadlineQueryRequest = {
+    adminId?: number;
+    current?: number;
+    deadlineTime?: string;
+    id?: number;
+    jobId?: number;
+    notId?: number;
+    pageSize?: number;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type DeadlineUpdateRequest = {
+    deadlineTime?: string;
+    id?: number;
+    jobId?: number;
+  };
+
+  type DeadlineVO = {
+    adminId?: number;
+    createTime?: string;
+    deadlineTime?: string;
+    id?: number;
+    jobId?: number;
+    jobVO?: JobVO;
+    updateTime?: string;
   };
 
   type DeleteRequest = {
@@ -358,6 +602,220 @@ declare namespace API {
   type Dimension = {
     height?: number;
     width?: number;
+  };
+
+  type Education = {
+    certifier?: string;
+    certifierPhone?: string;
+    createTime?: string;
+    educationalStage?: string;
+    id?: number;
+    isDelete?: number;
+    major?: string;
+    schoolId?: number;
+    studyTime?: string;
+    updateTime?: string;
+    userId?: number;
+  };
+
+  type EducationAddRequest = {
+    certifier?: string;
+    certifierPhone?: string;
+    educationalStage?: string;
+    major?: string;
+    schoolId?: number;
+    studyTime?: string;
+  };
+
+  type EducationEditRequest = {
+    certifier?: string;
+    certifierPhone?: string;
+    educationalStage?: string;
+    id?: number;
+    major?: string;
+    schoolId?: number;
+    studyTime?: string;
+  };
+
+  type EducationQueryRequest = {
+    certifier?: string;
+    certifierPhone?: string;
+    current?: number;
+    educationalStage?: string;
+    id?: number;
+    major?: string;
+    notId?: number;
+    pageSize?: number;
+    schoolId?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+    studyTime?: string;
+    userId?: number;
+  };
+
+  type EducationUpdateRequest = {
+    certifier?: string;
+    certifierPhone?: string;
+    educationalStage?: string;
+    id?: number;
+    major?: string;
+    schoolId?: number;
+    studyTime?: string;
+  };
+
+  type EducationVO = {
+    certifier?: string;
+    certifierPhone?: string;
+    createTime?: string;
+    educationalStage?: string;
+    id?: number;
+    major?: string;
+    schoolId?: number;
+    schoolVO?: SchoolVO;
+    studyTime?: string;
+    updateTime?: string;
+    userId?: number;
+    userVO?: UserVO;
+  };
+
+  type Family = {
+    appellation?: string;
+    createTime?: string;
+    familyName?: string;
+    id?: number;
+    isDelete?: number;
+    updateTime?: string;
+    userId?: number;
+    workDetail?: string;
+  };
+
+  type FamilyAddRequest = {
+    appellation?: string;
+    familyName?: string;
+    workDetail?: string;
+  };
+
+  type FamilyEditRequest = {
+    appellation?: string;
+    familyName?: string;
+    id?: number;
+    workDetail?: string;
+  };
+
+  type FamilyQueryRequest = {
+    appellation?: string;
+    current?: number;
+    familyName?: string;
+    id?: number;
+    notId?: number;
+    pageSize?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+    userId?: number;
+    workDetail?: string;
+  };
+
+  type FamilyUpdateRequest = {
+    appellation?: string;
+    familyName?: string;
+    id?: number;
+    userId?: number;
+    workDetail?: string;
+  };
+
+  type FamilyVO = {
+    appellation?: string;
+    createTime?: string;
+    familyName?: string;
+    id?: number;
+    updateTime?: string;
+    userId?: number;
+    userVO?: UserVO;
+    workDetail?: string;
+  };
+
+  type FileLog = {
+    createTime?: string;
+    fileName?: string;
+    filePath?: string;
+    fileTypeId?: number;
+    id?: number;
+    userId?: number;
+  };
+
+  type FileLogQueryRequest = {
+    current?: number;
+    fileName?: string;
+    filePath?: string;
+    fileTypeId?: number;
+    id?: number;
+    notId?: number;
+    pageSize?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+    userId?: number;
+  };
+
+  type FileLogVO = {
+    createTime?: string;
+    fileName?: string;
+    filePath?: string;
+    fileTypeId?: number;
+    id?: number;
+    updateTime?: string;
+    userId?: number;
+    userVO?: UserVO;
+  };
+
+  type FileType = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    maxFileSize?: number;
+    typeName?: string;
+    typeValues?: string;
+    updateTime?: string;
+  };
+
+  type FileTypeAddRequest = {
+    maxFileSize?: number;
+    typeName?: string;
+    typeValues?: string[];
+  };
+
+  type FileTypeQueryRequest = {
+    adminId?: number;
+    current?: number;
+    id?: number;
+    maxFileSize?: number;
+    notId?: number;
+    pageSize?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+    typeName?: string;
+    typeValues?: string[];
+  };
+
+  type FileTypeUpdateRequest = {
+    id?: number;
+    maxFileSize?: number;
+    typeName?: string;
+    typeValues?: string[];
+  };
+
+  type FileTypeVO = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    maxFileSize?: number;
+    typeName?: string;
+    typeValues?: string[];
+    updateTime?: string;
   };
 
   type Font = {
@@ -403,27 +861,87 @@ declare namespace API {
     transformed?: boolean;
   };
 
-  type getAuthVOByIdUsingGETParams = {
+  type getAdminVOByIdUsingGETParams = {
     /** id */
     id?: number;
   };
 
-  type getConversionVOByIdUsingGETParams = {
+  type getCadreTypeVOByIdUsingGETParams = {
     /** id */
     id?: number;
   };
 
-  type getMessageVOByIdUsingGETParams = {
+  type getDeadlineVOByIdUsingGETParams = {
     /** id */
     id?: number;
   };
 
-  type getPostVOByIdUsingGETParams = {
+  type getEducationVOByIdUsingGETParams = {
     /** id */
     id?: number;
   };
 
-  type getTagVOByIdUsingGETParams = {
+  type getFamilyVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getFileLogVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getFileTypeVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getJobVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getMessageNoticeVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getMessagePushVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getOperationLogVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getRegistrationFormVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getReviewLogVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getSchoolSchoolTypeVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getSchoolTypeVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getSchoolVOByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getSystemMessagesVOByIdUsingGETParams = {
     /** id */
     id?: number;
   };
@@ -449,67 +967,214 @@ declare namespace API {
 
   type ImageProducer = true;
 
-  type LoginUserVO = {
+  type Job = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    jobExplanation?: string;
+    jobName?: string;
+    updateTime?: string;
+  };
+
+  type JobAddRequest = {
+    jobExplanation?: string;
+    jobName?: string;
+  };
+
+  type JobQueryRequest = {
+    adminId?: number;
+    current?: number;
+    id?: number;
+    jobExplanation?: string;
+    jobName?: string;
+    notId?: number;
+    pageSize?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type JobUpdateRequest = {
+    id?: number;
+    jobExplanation?: string;
+    jobName?: string;
+  };
+
+  type JobVO = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    jobExplanation?: string;
+    jobName?: string;
+    updateTime?: string;
+  };
+
+  type LoginAdminVO = {
+    adminName?: string;
+    adminNumber?: string;
+    adminType?: string;
     createTime?: string;
     id?: number;
     token?: string;
     updateTime?: string;
-    userAvatar?: string;
-    userEmail?: string;
-    userName?: string;
-    userRole?: string;
   };
 
-  type Message = {
-    content?: string;
-    conversionId?: number;
+  type LoginUserVO = {
+    id?: number;
+    token?: string;
+    userAvatar?: string;
+    userEmail?: string;
+    userGender?: number;
+    userName?: string;
+    userPhone?: string;
+  };
+
+  type MessageNotice = {
+    adminId?: number;
     createTime?: string;
     id?: number;
-    senderType?: number;
+    interviewLocation?: string;
+    interviewTime?: string;
+    isDelete?: number;
+    registrationId?: number;
+    updateTime?: string;
+  };
+
+  type MessageNoticeAddRequest = {
+    interviewLocation?: string;
+    interviewTime?: string;
+    registrationId?: number;
+  };
+
+  type MessageNoticeQueryRequest = {
+    adminId?: number;
+    current?: number;
+    id?: number;
+    interviewLocation?: string;
+    interviewTime?: string;
+    notId?: number;
+    pageSize?: number;
+    registrationId?: number;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type MessageNoticeUpdateRequest = {
+    id?: number;
+    interviewLocation?: string;
+    interviewTime?: string;
+  };
+
+  type MessageNoticeVO = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    interviewLocation?: string;
+    interviewTime?: string;
+    registrationFormVO?: RegistrationFormVO;
+    registrationId?: number;
+    updateTime?: string;
+  };
+
+  type MessagePush = {
+    createTime?: string;
+    errorMessage?: string;
+    id?: number;
+    messageNoticeId?: number;
+    pushMessage?: string;
+    pushStatus?: number;
+    pushType?: string;
+    retryCount?: number;
+    updateTime?: string;
     userId?: number;
   };
 
-  type MessageAddRequest = {
-    content?: string;
-    conversionId?: number;
-    senderType?: number;
+  type MessagePushAddRequest = {
+    messageNoticeId?: number;
+    pushType?: string;
   };
 
-  type MessageEditRequest = {
-    content?: string;
-    conversionId?: number;
-    id?: number;
-    senderType?: number;
-  };
-
-  type MessageQueryRequest = {
-    content?: string;
-    conversionId?: number;
+  type MessagePushQueryRequest = {
     current?: number;
+    errorMessage?: string;
     id?: number;
+    messageNoticeId?: number;
     notId?: number;
     pageSize?: number;
+    pushMessage?: string;
+    pushStatus?: number;
+    pushType?: string;
+    retryCount?: number;
     searchText?: string;
-    senderType?: number;
     sortField?: string;
     sortOrder?: string;
     userId?: number;
   };
 
-  type MessageUpdateRequest = {
-    content?: string;
+  type MessagePushUpdateRequest = {
     id?: number;
-    senderType?: number;
+    messageNoticeId?: number;
+    pushMessage?: string;
+    pushStatus?: number;
+    pushType?: string;
+    userId?: number;
   };
 
-  type MessageVO = {
-    content?: string;
-    conversionId?: number;
+  type MessagePushVO = {
     createTime?: string;
+    errorMessage?: string;
     id?: number;
-    senderType?: number;
+    messageNoticeId?: number;
+    pushMessage?: string;
+    pushStatus?: number;
+    pushType?: string;
+    retryCount?: number;
+    updateTime?: string;
     userId?: number;
     userVO?: UserVO;
+  };
+
+  type OperationLog = {
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    requestId?: string;
+    requestIp?: string;
+    requestMethod?: string;
+    requestParams?: string;
+    requestPath?: string;
+    responseTime?: number;
+    userAgent?: string;
+  };
+
+  type OperationLogQueryRequest = {
+    current?: number;
+    id?: number;
+    notId?: number;
+    pageSize?: number;
+    requestId?: string;
+    requestIp?: string;
+    requestMethod?: string;
+    requestParams?: string;
+    requestPath?: string;
+    responseTime?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+    userAgent?: string;
+  };
+
+  type OperationLogVO = {
+    createTime?: string;
+    id?: number;
+    requestId?: string;
+    requestIp?: string;
+    requestMethod?: string;
+    requestParams?: string;
+    requestPath?: string;
+    responseTime?: number;
+    userAgent?: string;
   };
 
   type OrderItem = {
@@ -517,131 +1182,443 @@ declare namespace API {
     column?: string;
   };
 
-  type PageAuth_ = {
+  type PageAdmin_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: Auth[];
+    records?: Admin[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PageAuthVO_ = {
+  type PageAdminVO_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: AuthVO[];
+    records?: AdminVO[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PageConversion_ = {
+  type PageCadreType_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: Conversion[];
+    records?: CadreType[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PageConversionVO_ = {
+  type PageCadreTypeVO_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: ConversionVO[];
+    records?: CadreTypeVO[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PageMessage_ = {
+  type PageDeadline_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: Message[];
+    records?: Deadline[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PageMessageVO_ = {
+  type PageDeadlineVO_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: MessageVO[];
+    records?: DeadlineVO[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PagePost_ = {
+  type PageEducation_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: Post[];
+    records?: Education[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PagePostVO_ = {
+  type PageEducationVO_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: PostVO[];
+    records?: EducationVO[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PageTag_ = {
+  type PageFamily_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: Tag[];
+    records?: Family[];
     searchCount?: boolean;
     size?: number;
     total?: number;
   };
 
-  type PageTagVO_ = {
+  type PageFamilyVO_ = {
     countId?: string;
     current?: number;
     maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
     pages?: number;
-    records?: TagVO[];
+    records?: FamilyVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageFileLog_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: FileLog[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageFileLogVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: FileLogVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageFileType_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: FileType[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageFileTypeVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: FileTypeVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageJob_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: Job[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageJobVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: JobVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageMessageNotice_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: MessageNotice[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageMessageNoticeVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: MessageNoticeVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageMessagePush_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: MessagePush[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageMessagePushVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: MessagePushVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageOperationLog_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: OperationLog[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageOperationLogVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: OperationLogVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageRegistrationForm_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: RegistrationForm[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageRegistrationFormVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: RegistrationFormVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageReviewLog_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: ReviewLog[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageReviewLogVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: ReviewLogVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageSchool_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: School[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageSchoolSchoolType_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: SchoolSchoolType[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageSchoolSchoolTypeVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: SchoolSchoolTypeVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageSchoolType_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: SchoolType[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageSchoolTypeVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: SchoolTypeVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageSchoolVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: SchoolVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageSystemMessages_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: SystemMessages[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageSystemMessagesVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: SystemMessagesVO[];
     searchCount?: boolean;
     size?: number;
     total?: number;
@@ -676,92 +1653,6 @@ declare namespace API {
   type Point = {
     x?: number;
     y?: number;
-  };
-
-  type Post = {
-    content?: string;
-    cover?: string;
-    createTime?: string;
-    favourNum?: number;
-    id?: number;
-    isDelete?: number;
-    tags?: string;
-    thumbNum?: number;
-    title?: string;
-    updateTime?: string;
-    userId?: number;
-  };
-
-  type PostAddRequest = {
-    content?: string;
-    cover?: string;
-    tags?: string[];
-    title?: string;
-  };
-
-  type PostEditRequest = {
-    content?: string;
-    cover?: string;
-    id?: number;
-    tags?: string[];
-    title?: string;
-  };
-
-  type PostFavourAddRequest = {
-    postId?: number;
-  };
-
-  type PostFavourQueryRequest = {
-    current?: number;
-    pageSize?: number;
-    postQueryRequest?: PostQueryRequest;
-    sortField?: string;
-    sortOrder?: string;
-    userId?: number;
-  };
-
-  type PostQueryRequest = {
-    content?: string;
-    current?: number;
-    favourUserId?: number;
-    id?: number;
-    notId?: number;
-    orTags?: string[];
-    pageSize?: number;
-    searchText?: string;
-    sortField?: string;
-    sortOrder?: string;
-    tags?: string[];
-    title?: string;
-    userId?: number;
-  };
-
-  type PostThumbAddRequest = {
-    postId?: number;
-  };
-
-  type PostUpdateRequest = {
-    content?: string;
-    cover?: string;
-    id?: number;
-    tags?: string[];
-    title?: string;
-  };
-
-  type PostVO = {
-    content?: string;
-    cover?: string;
-    createTime?: string;
-    favourNum?: number;
-    hasFavour?: boolean;
-    hasThumb?: boolean;
-    id?: number;
-    tags?: string[];
-    thumbNum?: number;
-    title?: string;
-    updateTime?: string;
-    userId?: number;
-    userVO?: UserVO;
   };
 
   type Raster = {
@@ -813,6 +1704,136 @@ declare namespace API {
     y?: number;
   };
 
+  type RegistrationForm = {
+    address?: string;
+    birthDate?: string;
+    createTime?: string;
+    emergencyPhone?: string;
+    ethnic?: string;
+    id?: number;
+    isDelete?: number;
+    jobId?: number;
+    marryStatus?: number;
+    partyTime?: string;
+    reviewComments?: string;
+    reviewStatus?: number;
+    reviewTime?: string;
+    reviewer?: string;
+    studentLeaderAwards?: string;
+    updateTime?: string;
+    userAvatar?: string;
+    userEmail?: string;
+    userGender?: number;
+    userId?: number;
+    userIdCard?: string;
+    userName?: string;
+    userPhone?: string;
+    workExperience?: string;
+  };
+
+  type RegistrationFormAddRequest = {
+    address?: string;
+    birthDate?: string;
+    emergencyPhone?: string;
+    ethnic?: string;
+    jobId?: number;
+    marryStatus?: number;
+    partyTime?: string;
+    studentLeaderAwards?: string;
+    userAvatar?: string;
+    userEmail?: string;
+    userGender?: number;
+    userIdCard?: string;
+    userName?: string;
+    userPhone?: string;
+    workExperience?: string;
+  };
+
+  type RegistrationFormEditRequest = {
+    address?: string;
+    birthDate?: string;
+    emergencyPhone?: string;
+    ethnic?: string;
+    id?: number;
+    jobId?: number;
+    marryStatus?: number;
+    partyTime?: string;
+    studentLeaderAwards?: string;
+    userAvatar?: string;
+    userEmail?: string;
+    userGender?: number;
+    userIdCard?: string;
+    userName?: string;
+    userPhone?: string;
+    workExperience?: string;
+  };
+
+  type RegistrationFormQueryRequest = {
+    address?: string;
+    birthDate?: string;
+    current?: number;
+    emergencyPhone?: string;
+    ethnic?: string;
+    id?: number;
+    jobId?: number;
+    marryStatus?: number;
+    notId?: number;
+    pageSize?: number;
+    partyTime?: string;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+    studentLeaderAwards?: string;
+    userEmail?: string;
+    userGender?: number;
+    userId?: number;
+    userIdCard?: string;
+    userName?: string;
+    userPhone?: string;
+    workExperience?: string;
+  };
+
+  type RegistrationFormUpdateRequest = {
+    address?: string;
+    birthDate?: string;
+    emergencyPhone?: string;
+    ethnic?: string;
+    id?: number;
+    jobId?: number;
+    marryStatus?: number;
+    partyTime?: string;
+    studentLeaderAwards?: string;
+    userAvatar?: string;
+    userEmail?: string;
+    userGender?: number;
+    userId?: number;
+    userIdCard?: string;
+    userName?: string;
+    userPhone?: string;
+    workExperience?: string;
+  };
+
+  type RegistrationFormVO = {
+    address?: string;
+    birthDate?: string;
+    createTime?: string;
+    ethnic?: string;
+    id?: number;
+    jobId?: number;
+    jobVO?: JobVO;
+    marryStatus?: number;
+    partyTime?: string;
+    studentLeaderAwards?: string;
+    updateTime?: string;
+    userAvatar?: string;
+    userEmail?: string;
+    userGender?: number;
+    userId?: number;
+    userName?: string;
+    userPhone?: string;
+    workExperience?: string;
+  };
+
   type RenderedImage = {
     colorModel?: ColorModel;
     data?: Raster;
@@ -833,6 +1854,57 @@ declare namespace API {
     width?: number;
   };
 
+  type ReviewLog = {
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    registrationId?: number;
+    reviewComments?: string;
+    reviewStatus?: number;
+    reviewTime?: string;
+    reviewerId?: number;
+    updateTime?: string;
+  };
+
+  type ReviewLogAddRequest = {
+    registrationId?: number;
+    reviewComments?: string;
+    reviewStatus?: number;
+  };
+
+  type ReviewLogQueryRequest = {
+    current?: number;
+    id?: number;
+    notId?: number;
+    pageSize?: number;
+    registrationId?: number;
+    reviewComments?: string;
+    reviewStatus?: number;
+    reviewerId?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type ReviewLogUpdateRequest = {
+    id?: number;
+    registrationId?: number;
+    reviewComments?: string;
+    reviewStatus?: number;
+  };
+
+  type ReviewLogVO = {
+    adminVO?: AdminVO;
+    createTime?: string;
+    id?: number;
+    registrationId?: number;
+    reviewComments?: string;
+    reviewStatus?: number;
+    reviewTime?: string;
+    reviewerId?: number;
+    updateTime?: string;
+  };
+
   type SampleModel = {
     dataType?: number;
     height?: number;
@@ -843,17 +1915,126 @@ declare namespace API {
     width?: number;
   };
 
-  type SearchRequest = {
+  type School = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    schoolName?: string;
+    updateTime?: string;
+  };
+
+  type SchoolAddRequest = {
+    schoolName?: string;
+  };
+
+  type SchoolQueryRequest = {
+    adminId?: number;
     current?: number;
+    id?: number;
+    notId?: number;
+    pageSize?: number;
+    schoolName?: string;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type SchoolSchoolType = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    schoolId?: number;
+    schoolTypes?: string;
+    updateTime?: string;
+  };
+
+  type SchoolSchoolTypeAddRequest = {
+    schoolId?: number;
+    schoolTypes?: string[];
+  };
+
+  type SchoolSchoolTypeQueryRequest = {
+    adminId?: number;
+    current?: number;
+    id?: number;
+    notId?: number;
+    pageSize?: number;
+    schoolId?: number;
+    schoolTypes?: string[];
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type SchoolSchoolTypeUpdateRequest = {
+    id?: number;
+    schoolId?: number;
+    schoolTypes?: string[];
+  };
+
+  type SchoolSchoolTypeVO = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    schoolId?: number;
+    schoolTypes?: string[];
+    schoolVO?: SchoolVO;
+    updateTime?: string;
+  };
+
+  type SchoolType = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    isDelete?: number;
+    typeName?: string;
+    updateTime?: string;
+  };
+
+  type SchoolTypeAddRequest = {
+    typeName?: string;
+  };
+
+  type SchoolTypeQueryRequest = {
+    adminId?: number;
+    current?: number;
+    id?: number;
+    notId?: number;
     pageSize?: number;
     searchText?: string;
     sortField?: string;
     sortOrder?: string;
-    type?: string;
+    typeName?: string;
   };
 
-  type SearchVOObject_ = {
-    dataList?: Record<string, any>[];
+  type SchoolTypeUpdateRequest = {
+    content?: string;
+    id?: number;
+    tags?: string[];
+    title?: string;
+  };
+
+  type SchoolTypeVO = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    typeName?: string;
+    updateTime?: string;
+  };
+
+  type SchoolUpdateRequest = {
+    id?: number;
+    schoolName?: string;
+  };
+
+  type SchoolVO = {
+    adminId?: number;
+    createTime?: string;
+    id?: number;
+    schoolName?: string;
+    updateTime?: string;
   };
 
   type Shape = {
@@ -861,69 +2042,57 @@ declare namespace API {
     bounds2D?: Rectangle2D;
   };
 
-  type Tag = {
+  type SystemMessages = {
+    content?: string;
     createTime?: string;
     id?: number;
     isDelete?: number;
-    isParent?: number;
-    parentId?: number;
-    tagName?: string;
+    pushStatus?: number;
+    pushTime?: string;
+    title?: string;
+    type?: string;
     updateTime?: string;
-    userId?: number;
   };
 
-  type TagAddRequest = {
-    isParent?: number;
-    parentId?: number;
-    tagName?: string;
+  type SystemMessagesAddRequest = {
+    content?: string;
+    pushTime?: string;
+    title?: string;
+    type?: string;
   };
 
-  type TagChildren = {
-    children?: TagChildren[];
-    id?: number;
-    tagName?: string;
-  };
-
-  type TagDTO = {
-    children?: TagChildren[];
-    id?: number;
-    tagName?: string;
-  };
-
-  type TagEditRequest = {
-    id?: number;
-    tagName?: string;
-  };
-
-  type TagQueryRequest = {
+  type SystemMessagesQueryRequest = {
+    content?: string;
     current?: number;
     id?: number;
-    isParent?: number;
+    notId?: number;
     pageSize?: number;
-    parentId?: number;
+    pushStatus?: number;
+    pushTime?: string;
+    searchText?: string;
     sortField?: string;
     sortOrder?: string;
-    tagName?: string;
-    userId?: number;
+    title?: string;
+    type?: string;
   };
 
-  type TagUpdateRequest = {
+  type SystemMessagesUpdateRequest = {
+    content?: string;
     id?: number;
-    idList?: number[];
-    isParent?: number;
-    parentId?: number;
-    tagName?: string;
+    pushTime?: string;
+    title?: string;
+    type?: string;
   };
 
-  type TagVO = {
+  type SystemMessagesVO = {
+    content?: string;
     createTime?: string;
     id?: number;
-    isParent?: number;
-    parentId?: number;
-    tagName?: string;
+    pushStatus?: number;
+    pushTime?: string;
+    title?: string;
+    type?: string;
     updateTime?: string;
-    userId?: number;
-    userVO?: UserVO;
   };
 
   type uploadFileUsingPOSTParams = {
@@ -934,35 +2103,35 @@ declare namespace API {
     createTime?: string;
     id?: number;
     isDelete?: number;
-    mpOpenId?: string;
-    unionId?: string;
     updateTime?: string;
     userAccount?: string;
     userAvatar?: string;
     userEmail?: string;
+    userGender?: number;
+    userIdCard?: string;
     userName?: string;
     userPassword?: string;
-    userRole?: string;
+    userPhone?: string;
   };
 
   type UserAddRequest = {
     userAccount?: string;
     userAvatar?: string;
     userEmail?: string;
+    userGender?: number;
+    userIdCard?: string;
     userName?: string;
-    userRole?: string;
+    userPassword?: string;
+    userPhone?: string;
   };
 
   type UserEditRequest = {
     userAvatar?: string;
     userEmail?: string;
+    userGender?: number;
+    userIdCard?: string;
     userName?: string;
-    userPassword?: string;
-  };
-
-  type userLoginByWxOpenUsingGETParams = {
-    /** code */
-    code: string;
+    userPhone?: string;
   };
 
   type UserLoginRequest = {
@@ -973,43 +2142,53 @@ declare namespace API {
   type UserQueryRequest = {
     current?: number;
     id?: number;
-    mpOpenId?: string;
     notId?: number;
     pageSize?: number;
     searchText?: string;
     sortField?: string;
     sortOrder?: string;
-    unionId?: string;
+    userAccount?: string;
+    userAvatar?: string;
     userEmail?: string;
+    userGender?: number;
+    userIdCard?: string;
     userName?: string;
-    userRole?: string;
+    userPassword?: string;
+    userPhone?: string;
   };
 
   type UserRegisterRequest = {
-    checkPassword?: string;
+    checkUserPassword?: string;
     userAccount?: string;
     userPassword?: string;
+  };
+
+  type UserUpdatePasswordRequest = {
+    checkUserPassword?: string;
+    userPassword?: string;
+    userPhone?: string;
+    verificationCode?: string;
   };
 
   type UserUpdateRequest = {
     id?: number;
     userAvatar?: string;
     userEmail?: string;
+    userGender?: number;
+    userIdCard?: string;
     userName?: string;
-    userPassword?: string;
-    userRole?: string;
+    userPhone?: string;
   };
 
   type UserVO = {
     createTime?: string;
     id?: number;
-    mpOpenId?: string;
-    unionId?: string;
     updateTime?: string;
     userAvatar?: string;
     userEmail?: string;
+    userGender?: number;
     userName?: string;
-    userRole?: string;
+    userPhone?: string;
   };
 
   type WritableRaster = {
